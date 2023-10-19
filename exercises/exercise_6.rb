@@ -9,6 +9,9 @@ puts "Exercise 6"
 puts "----------"
 
 # Your code goes here ...
+=begin
+Moved to ../lib/
+
 class Store < ActiveRecord::Base
   has_many :employees
 end
@@ -16,6 +19,8 @@ end
 class Employee < ActiveRecord::Base
   belongs_to :store
 end
+
+=end
 
 @store1.employees.create(first_name: "Khurram", last_name: "Virani", hourly_rate: 60)
 @store1.employees.create(first_name: "Vicky", last_name: "Kuthri", hourly_rate: 60)

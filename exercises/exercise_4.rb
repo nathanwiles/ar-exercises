@@ -24,9 +24,7 @@ Store.create(name: "Yaletown", annual_revenue: 430000, mens_apparel: true, women
 print_list(@mens_stores)
 
 
-@womens_apparel = Store.where(womens_apparel: true)
-@womens_apparel = @womens_apparel.filter do |store|
-store.annual_revenue < 1000000
-end
+@womens_apparel = Store.where(womens_apparel: true).where("annual_revenue < ?", 1000000)
+
 
 print_list(@womens_apparel)

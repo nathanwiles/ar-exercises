@@ -14,4 +14,5 @@ end
 @store1 = Store.find_by(id: 1)
 @store1.employees.create(first_name: "Khurrami", last_name: "Virtuoso", hourly_rate: 60)
 
-puts Employee.find_by(first_name: "Khurrami").password
+password = Employee.find_by(first_name: "Khurrami").password
+puts "Generated password: #{password}"

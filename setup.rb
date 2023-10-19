@@ -1,26 +1,26 @@
-require 'pry' # in case you want to use binding.pry
-require 'active_record'
-require_relative 'lib/store'
-require_relative 'lib/employee'
+require "pry" # in case you want to use binding.pry
+require "active_record"
+require_relative "lib/store"
+require_relative "lib/employee"
 
 # Output messages from Active Record to standard out
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-puts 'Establishing connection to database ...'
+puts "Establishing connection to database ..."
 ActiveRecord::Base.establish_connection(
-  adapter: 'postgresql',
-  database: 'ar_exercises',
-  username: 'development',
-  password: 'development',
-  host: 'localhost',
+  adapter: "postgresql",
+  database: "ar_exercises",
+  username: "development",
+  password: "development",
+  host: "localhost",
   port: 5432,
   pool: 5,
-  encoding: 'unicode',
-  min_messages: 'error'
+  encoding: "unicode",
+  min_messages: "error",
 )
-puts 'CONNECTED'
+puts "CONNECTED"
 
-puts 'Setting up Database (recreating tables) ...'
+puts "Setting up Database (recreating tables) ..."
 
 ActiveRecord::Schema.define do
   drop_table :stores if ActiveRecord::Base.connection.table_exists?(:stores)
@@ -41,4 +41,4 @@ ActiveRecord::Schema.define do
   end
 end
 
-puts 'Setup DONE'
+puts "Setup DONE"
